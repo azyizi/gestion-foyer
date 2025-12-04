@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPRIT Foyer - Espace Réclamation Résident</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Couleurs personnalisées
+                        'esprit-red': '#E63946',
+                        'secondary': '#A8201A',
+                        'accent': '#F9C74F',
+                        'background': '#F1FAEE',
+                        'text': '#1D3557',
+                        'dark-bg': '#333333',
+                        'form-bg': '#E5E5E5', 
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <div class="flex items-center space-x-2">
+                <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+            </div>
+
+            <nav class="hidden md:flex">
+                <div class="flex space-x-2 bg-esprit-red rounded-full p-1 shadow-lg">
+                    <a href="index.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Accueil</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
+                    <a href="reclamation.html" class="px-5 py-2 text-white font-medium rounded-full bg-secondary transition duration-150">Maintenance</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
+                </div>
+            </nav>
+
+            </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        
+        <h2 class="text-4xl font-extrabold text-text mb-10">Espace Réclamation & Notifications</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center space-x-8">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h3 class="text-3xl font-extrabold text-esprit-red mb-3">
+                        DEMANDER UNE INTERVENTION
+                    </h3>
+                    <p class="text-gray-600 text-base mb-6">
+                        Passez en revue le statut de vos demandes de service soumises, de vos réclamations de maintenance et de vos problèmes passés.
+                    </p>
+                    <a href="#" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+                        FAIRE UNE DEMANDE
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+                    <div class="p-4 rounded-full bg-gray-200">
+                         <i class="fas fa-cogs text-6xl text-text opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center space-x-8">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h3 class="text-3xl font-extrabold text-esprit-red mb-3">
+                        CONSULTER MES NOTIFICATIONS
+                    </h3>
+                    <p class="text-gray-600 text-base mb-6">
+                        Consultez ici votre fil d'actualité personnel. C'est l'espace dédié à toutes les communications de la résidence.
+                    </p>
+                    <a href="#" class="inline-block bg-secondary text-white font-bold py-3 px-6 rounded-lg hover:bg-esprit-red transition duration-150 shadow-md uppercase text-sm">
+                        VOIR LES NOUVELLES
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+                    <div class="p-4 rounded-full bg-gray-200">
+                         <i class="fas fa-bell text-6xl text-text opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="w-full bg-esprit-red py-4 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-white">
+            
+            <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                <div class="bg-white p-2 rounded-lg">
+                    <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-8"> 
+                </div>
+                
+                <div class="text-xs">
+                    <p class="font-bold">Contact Us</p>
+                    <p>Tél : [Numéro du Foyer]</p>
+                    <p>E-mail : info@espritfoyer.com</p>
+                </div>
+            </div>
+            
+            <p class="text-right">© 2025 Esprit - Foyer. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
