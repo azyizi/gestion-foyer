@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Foyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Ensure proper spacing and responsive behavior */
+        .notification-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        
+        @media (min-width: 768px) {
+            .notification-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        
+        /* Card height consistency */
+        .notification-card {
+            height: fit-content;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- NAV BAR -->
+    <nav class="w-full bg-white pt-8 pb-4">
+        <div class="max-w-7xl mx-auto flex items-center px-4 relative">
+
+            <a href="index.html" class="flex items-center space-x-2 z-10">
+                <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-12">
+            </a>
+
+            <div class="absolute inset-x-0 mx-auto w-fit hidden md:block">
+                <div class="bg-red-600 rounded-full shadow-lg p-2 flex space-x-6 text-white text-sm font-semibold">
+                    <a href="index.html" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Accueil</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Reservation</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Maintenance</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Annonces</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Nous contacter</a>
+                </div>
+            </div>
+
+            <div class="ml-auto w-[80px] h-10"></div>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- TITLE -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-red-600 mb-4">Notifications</h1>
+        <p class="text-gray-600 mb-10 text-base sm:text-lg">Consulter les informations importantes</p>
+
+        <!-- GRID NOTIFICATIONS - FIXED -->
+        <div class="notification-grid gap-6 md:gap-8">
+            <!-- Using Tailwind classes for grid -->
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"> -->
+
+            <!-- CARD 1 -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-bell text-gray-700"></i>
+                            Facture disponible
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre nouvelle facture du mois de novembre est maintenant disponible…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-credit-card text-gray-700"></i>
+                            Paiement
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre paiement de ce mois a été reçu avec succès…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-gray-700"></i>
+                            Renouvellement
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre contrat de foyer expire dans 10 jours. Pensez à le renouveler…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-gray-700"></i>
+                            Maintenance
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Une intervention de maintenance est prévue demain entre 09h et 12h…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 5 (Électricité) -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-lightbulb text-gray-700"></i>
+                            Électricité
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Une coupure d'électricité est prévue aujourd'hui de 14h à 16h…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="notification-card bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-dumbbell text-gray-700"></i>
+                            Club sportif
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ouverture des inscriptions pour le club sportif…
+                    </p>
+                </div>
+                <button class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full md:w-auto">
+                    Afficher
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-red-600 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-white gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                <div class="bg-white p-3 rounded-xl">
+                    <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-10">
+                </div>
+
+                <div>
+                    <p class="font-bold">Contact Us</p>
+                    <p>Tél : [Numéro du Foyer]</p>
+                    <p>E-mail : info@espritfoyer.com</p>
+                </div>
+            </div>
+
+            <p class="text-center">© 2025 Esprit - Foyer. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
