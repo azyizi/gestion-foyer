@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPRIT Foyer - Connexion Résident</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Couleurs personnalisées
+                        'esprit-red': '#E63946',
+                        'secondary': '#A8201A',
+                        'accent': '#F9C74F',
+                        'background': '#F1FAEE',
+                        'text': '#1D3557',
+                        'dark-bg': '#333333',
+                        'form-bg': '#E5E5E5', 
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Retire le fond sombre et utilise le fond de la balise body (bg-gray-100) */
+        /* Conteneur pour centrer la carte de connexion sur la page */
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Hauteur ajustée pour centrer dans la fenêtre moins le footer */
+            min-height: calc(100vh - 80px); 
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <main class="flex-grow center-card p-4">
+        <div class="w-full max-w-sm bg-white p-10 rounded-2xl shadow-2xl">
+            
+            <div class="text-left mb-8">
+                <img class="h-10 w-auto mb-4" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+                <h1 class="text-2xl font-extrabold text-text mt-2">Connexion Résident</h1>
+                <p class="text-sm text-gray-500">Accédez à votre espace résident.</p>
+            </div>
+            
+            <form action="#" method="POST" class="space-y-4">
+                
+                <div>
+                    <label for="id-email" class="block text-sm font-medium text-text mb-1">Email ou ID Étudiant</label>
+                    <input id="id-email" name="id-email" type="text" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-esprit-red focus:border-esprit-red placeholder-gray-400" 
+                           placeholder="Entrez votre identifiant">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-text mb-1">Mot de Passe</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-esprit-red focus:border-esprit-red placeholder-gray-400" 
+                           placeholder="Votre mot de passe">
+                </div>
+
+                <div class="flex justify-between items-center text-xs pt-2">
+                    <a href="#" class="text-esprit-red hover:text-secondary font-medium">Mot de passe oublié ?</a>
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-esprit-red border-gray-300 rounded focus:ring-esprit-red">
+                        <label for="remember-me" class="ml-2 block text-text">
+                            Se souvenir de moi
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-esprit-red text-white font-bold py-3 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm mt-6">
+                    Connexion
+                </button>
+            </form>
+            
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-600">
+                    Pas encore de compte ? <a href="inscription.html" class="font-medium text-esprit-red hover:text-secondary">Inscrivez-vous ici</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full bg-esprit-red py-4">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-white">
+            
+            <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                <div class="bg-white p-2 rounded-lg">
+                    <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-8"> 
+                </div>
+                
+                <div class="text-xs">
+                    <p class="font-bold">Contact Us</p>
+                    <p>Tél : [Numéro du Foyer]</p>
+                    <p>E-mail : info@espritfoyer.com</p>
+                </div>
+            </div>
+            
+            <p class="text-right">© 2025 Esprit - Foyer. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

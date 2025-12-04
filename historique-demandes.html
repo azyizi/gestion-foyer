@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPRIT Foyer - Historique des Demandes</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Couleurs personnalisées
+                        'esprit-red': '#E63946',
+                        'secondary': '#A8201A',
+                        'accent': '#F9C74F',
+                        'background': '#F1FAEE',
+                        'text': '#1D3557',
+                        'dark-bg': '#333333',
+                        'form-bg': '#E5E5E5', 
+                        'card-bg': '#F8F8F8', 
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Définir un fond gris clair uniforme */
+        body {
+            background-color: #f1f1f1; /* Fond gris clair */
+            /* Suppression des styles de rayures */
+        }
+        
+        /* Conteneur principal pour centrer le contenu */
+        .content-container {
+            max-width: 900px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        /* Styles pour les cartes de demande */
+        .demand-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #E63946; /* Ajout d'une barre de couleur pour style */
+        }
+        
+        /* Styles pour le Pop-up Modal DÉTAILS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); 
+            z-index: 1000;
+            display: none; 
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #E5E5E5; /* form-bg */
+            border-radius: 2rem;
+            padding: 2rem;
+            max-width: 800px;
+            width: 95%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .info-box {
+            background-color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <div class="flex items-center space-x-2">
+                <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+            </div>
+
+            <nav class="hidden md:flex">
+                <div class="flex space-x-2 bg-esprit-red rounded-full p-1 shadow-lg">
+                    <a href="index.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Accueil</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
+                    <a href="reclamation.html" class="px-5 py-2 text-white font-medium rounded-full bg-secondary transition duration-150">Maintenance</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
+                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow flex justify-center w-full p-4">
+        <div class="content-container w-full">
+            
+            <h2 class="text-3xl font-extrabold text-text mb-2">Historique Des Demandes</h2>
+            <p class="text-gray-700 text-base mb-10">
+                Passez en revue le statut de vos demandes de service soumises, de vos réclamations de maintenance et de vos problèmes passés.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                
+                <div class="demand-card flex flex-col justify-between border-l-4 border-green-500">
+                    <div>
+                        <h3 class="text-xl font-bold text-text mb-4">ID Demande #002</h3>
+                        <p class="text-sm text-gray-700 mb-2">Catégorie : **Plomberie**</p>
+                        <div class="flex items-center space-x-4 text-sm mb-3">
+                            <span class="flex items-center text-green-600 font-medium"><i class="fas fa-circle text-xs mr-2"></i> Résolue</span>
+                            <span class="flex items-center text-gray-500"><i class="far fa-circle text-xs mr-2"></i> En Cours</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Date 27/05/2025</p>
+                    </div>
+                    <button class="voir-detail mt-4 w-full md:w-auto bg-gray-200 text-text font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-150 text-sm" data-id="#002">
+                        VOIR DÉTAIL
+                    </button>
+                </div>
+
+                <div class="demand-card flex flex-col justify-between border-l-4 border-yellow-500">
+                    <div>
+                        <h3 class="text-xl font-bold text-text mb-4">ID Demande #004</h3>
+                        <p class="text-sm text-gray-700 mb-2">Catégorie : **Électricité**</p>
+                        <div class="flex items-center space-x-4 text-sm mb-3">
+                            <span class="flex items-center text-gray-500"><i class="far fa-circle text-xs mr-2"></i> Résolue</span>
+                            <span class="flex items-center text-yellow-600 font-medium"><i class="fas fa-circle text-xs mr-2"></i> En Cours</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Date 27/08/2025</p>
+                    </div>
+                    <button class="voir-detail mt-4 w-full md:w-auto bg-gray-200 text-text font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-150 text-sm" data-id="#004">
+                        VOIR DÉTAIL
+                    </button>
+                </div>
+                
+                <div class="demand-card flex flex-col justify-between border-l-4 border-yellow-500">
+                    <div>
+                        <h3 class="text-xl font-bold text-text mb-4">ID Demande #005</h3>
+                        <p class="text-sm text-gray-700 mb-2">Catégorie : **Mobilier**</p>
+                        <div class="flex items-center space-x-4 text-sm mb-3">
+                            <span class="flex items-center text-gray-500"><i class="far fa-circle text-xs mr-2"></i> Résolue</span>
+                            <span class="flex items-center text-yellow-600 font-medium"><i class="fas fa-circle text-xs mr-2"></i> En Cours</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Date 27/07/2025</p>
+                    </div>
+                    <button class="voir-detail mt-4 w-full md:w-auto bg-gray-200 text-text font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-150 text-sm" data-id="#005">
+                        VOIR DÉTAIL
+                    </button>
+                </div>
+
+                <div class="demand-card flex flex-col justify-between border-l-4 border-green-500">
+                    <div>
+                        <h3 class="text-xl font-bold text-text mb-4">ID Demande #006</h3>
+                        <p class="text-sm text-gray-700 mb-2">Catégorie : **Sécurité**</p>
+                        <div class="flex items-center space-x-4 text-sm mb-3">
+                            <span class="flex items-center text-green-600 font-medium"><i class="fas fa-circle text-xs mr-2"></i> Résolue</span>
+                            <span class="flex items-center text-gray-500"><i class="far fa-circle text-xs mr-2"></i> En Cours</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Date 27/03/2025</p>
+                    </div>
+                    <button class="voir-detail mt-4 w-full md:w-auto bg-gray-200 text-text font-semibold py-2 rounded-lg hover:bg-gray-300 transition duration-150 text-sm" data-id="#006">
+                        VOIR DÉTAIL
+                    </button>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="demande-intervention.html" class="inline-block bg-esprit-red text-white font-bold py-3 px-8 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase">
+                    SOUMETTRE UNE RÉCLAMATION
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="w-full bg-esprit-red py-4 mt-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-white">
+            
+            <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                <div class="bg-white p-2 rounded-lg">
+                    <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-8"> 
+                </div>
+                
+                <div class="text-xs">
+                    <p class="font-bold">Contact Us</p>
+                    <p>Tél : [Numéro du Foyer]</p>
+                    <p>E-mail : info@espritfoyer.com</p>
+                </div>
+            </div>
+            
+            <p class="text-right">© 2025 Esprit - Foyer. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    
+    <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            
+            <h3 class="text-3xl font-extrabold text-esprit-red mb-6">
+                DÉTAILS DE LA DEMANDE <span id="modal-demande-id">#000</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                
+                <div class="info-box text-left p-4">
+                    <p class="text-lg font-bold text-text mb-2">Informations Générales</p>
+                    <p class="text-sm text-gray-700">ID Demande: <span id="detail-id" class="font-medium">#00451</span></p>
+                    <p class="text-sm text-gray-700">Date: <span id="detail-date" class="font-medium">25/11/2025</span></p>
+                    <p class="text-sm text-gray-700">Catégorie: <span id="detail-categorie" class="font-medium">Plomberie</span></p>
+                    <p class="text-sm text-gray-700">Chambre: <span id="detail-chambre" class="font-medium">301</span></p>
+                </div>
+                
+                <div class="info-box text-left p-4">
+                    <p class="text-lg font-bold text-text mb-2">Statut Actuel</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check-circle text-2xl text-green-500"></i>
+                        <span id="detail-statut" class="font-extrabold text-green-600 text-lg">RÉSOLUE</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div class="info-box text-left p-4">
+                    <p class="text-lg font-bold text-text mb-2">Description</p>
+                    <p id="detail-description" class="text-sm text-gray-700">Fuite importante sous l'évier. Le meuble est endommagé.</p>
+                </div>
+                
+                <div class="info-box text-left p-4">
+                    <p class="text-lg font-bold text-text mb-2">Statut & Suivi</p>
+                    <ul id="detail-historique" class="text-sm text-gray-700 space-y-1">
+                        <li>25/11 - Demande soumise</li>
+                        <li>25/11 - Technicien assigné</li>
+                        <li>26/11 - Intervention en cours</li>
+                        <li>27/11 - Résolu + photo jointe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-6">
+                <button id="close-details-modal-button" class="bg-esprit-red text-white font-bold py-2 px-8 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+                    FERMER
+                </button>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('details-modal');
+            const closeButton = document.getElementById('close-details-modal-button');
+            const detailButtons = document.querySelectorAll('.voir-detail');
+            
+            // Simulation de données détaillées pour l'exemple
+            const dataDetails = {
+                '#002': {
+                    id: '#002', date: '27/05/2025', categorie: 'Plomberie', chambre: '101', statut: 'RÉSOLUE',
+                    description: "Le robinet de la cuisine fuyait et a été remplacé par un modèle neuf.",
+                    historique: ['27/05 - Demande soumise', '28/05 - Technicien assigné', '29/05 - Intervention terminée']
+                },
+                '#004': {
+                    id: '#004', date: '27/08/2025', categorie: 'Électricité', chambre: '205', statut: 'EN COURS',
+                    description: "Prise électrique murale défectueuse dans la chambre. Risque de court-circuit.",
+                    historique: ['27/08 - Demande soumise', '28/08 - Technicien assigné', '28/08 - Diagnostic posé']
+                },
+                '#005': {
+                    id: '#005', date: '27/07/2025', categorie: 'Mobilier', chambre: '310', statut: 'EN ATTENTE',
+                    description: "Lattes du sommier du lit cassées. Le lit n'est plus utilisable.",
+                    historique: ['27/07 - Demande soumise', '28/07 - En attente de livraison de pièces']
+                },
+                '#006': {
+                    id: '#006', date: '27/03/2025', categorie: 'Sécurité', chambre: '401', statut: 'RÉSOLUE',
+                    description: "La serrure de la porte principale était bloquée. Remplacement effectué.",
+                    historique: ['27/03 - Demande soumise', '27/03 - Intervention urgente', '27/03 - Résolu']
+                }
+            };
+
+
+            // Fonction pour ouvrir le pop-up et remplir les données
+            detailButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const demandId = this.getAttribute('data-id');
+                    const details = dataDetails[demandId];
+                    
+                    if (details) {
+                        // Remplir les informations de base
+                        document.getElementById('modal-demande-id').textContent = details.id;
+                        document.getElementById('detail-id').textContent = details.id;
+                        document.getElementById('detail-date').textContent = details.date;
+                        document.getElementById('detail-categorie').textContent = details.categorie;
+                        document.getElementById('detail-chambre').textContent = details.chambre;
+                        document.getElementById('detail-description').textContent = details.description;
+                        
+                        // Remplir le statut actuel
+                        const statutElement = document.getElementById('detail-statut');
+                        statutElement.textContent = details.statut;
+                        statutElement.classList.remove('text-green-600', 'text-yellow-600', 'text-gray-600');
+                        if (details.statut === 'RÉSOLUE') {
+                            statutElement.classList.add('text-green-600');
+                            document.querySelector('#details-modal .fa-check-circle').classList.remove('text-yellow-500');
+                            document.querySelector('#details-modal .fa-check-circle').classList.add('text-green-500');
+                        } else if (details.statut === 'EN COURS') {
+                            statutElement.classList.add('text-yellow-600');
+                            document.querySelector('#details-modal .fa-check-circle').classList.add('text-yellow-500');
+                            document.querySelector('#details-modal .fa-check-circle').classList.remove('text-green-500');
+                        } else {
+                             statutElement.classList.add('text-gray-600');
+                             document.querySelector('#details-modal .fa-check-circle').classList.remove('text-green-500', 'text-yellow-500');
+                        }
+
+
+                        // Remplir l'historique
+                        const historiqueList = document.getElementById('detail-historique');
+                        historiqueList.innerHTML = '';
+                        details.historique.forEach(item => {
+                            const li = document.createElement('li');
+                            li.textContent = item;
+                            historiqueList.appendChild(li);
+                        });
+                        
+                        modal.style.display = 'flex';
+                    }
+                });
+            });
+
+            // Fonction pour masquer le pop-up
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            // Fermeture via le bouton "FERMER"
+            closeButton.addEventListener('click', closeModal);
+
+            // Fermeture en cliquant en dehors du pop-up
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
