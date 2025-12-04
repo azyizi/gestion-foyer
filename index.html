@@ -33,16 +33,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
             <div class="flex items-center space-x-2">
-                <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+                <a href="index.html">
+                    <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+                </a>
             </div>
 
             <nav class="hidden md:flex">
                 <div class="flex space-x-2 bg-esprit-red rounded-full p-1 shadow-lg">
                     <a href="index.html" class="px-5 py-2 text-white font-medium rounded-full bg-secondary transition duration-150">Accueil</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Maintenance</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
+                    <a href="reservations.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
+                    <a href="reclamation.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Maintenance</a>
+                    <a href="annonces.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
+                    <a href="contact.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
                 </div>
             </nav>
 
@@ -53,10 +55,10 @@
         
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
              <a href="index.html" class="block px-4 py-2 text-text hover:bg-gray-100">Accueil</a>
-             <a href="#" class="block px-4 py-2 text-text hover:bg-gray-100">Réservations</a>
-             <a href="#" class="block px-4 py-2 text-text hover:bg-gray-100">Maintenance</a>
-             <a href="#" class="block px-4 py-2 text-text hover:bg-gray-100">Annonces</a>
-             <a href="#" class="block px-4 py-2 text-text hover:bg-gray-100">Nous contacter</a>
+             <a href="reservations.html" class="block px-4 py-2 text-text hover:bg-gray-100">Réservations</a>
+             <a href="reclamation.html" class="block px-4 py-2 text-text hover:bg-gray-100">Maintenance</a>
+             <a href="annonces.html" class="block px-4 py-2 text-text hover:bg-gray-100">Annonces</a>
+             <a href="contact.html" class="block px-4 py-2 text-text hover:bg-gray-100">Nous contacter</a>
         </div>
     </header>
 
@@ -90,7 +92,7 @@
                 <p class="text-gray-600 text-base mb-6">
                     Votre plateforme tout-en-un pour gérer votre vie au sein du foyer. Signalez les problèmes techniques, suivez vos paiements et accédez aux services collectifs.
                 </p>
-                <a href="#" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+                <a href="reclamation.html" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
                     MANAGE YOUR ROOM
                 </a>
             </div>
@@ -104,7 +106,7 @@
                 <p class="text-gray-600 text-base mb-6">
                     Évitez les surprises. En consultant ce fil d'actualité, vous vous tenez au courant des dernières communications de la résidence (travaux, événements, sécurité, etc.).
                 </p>
-                <a href="#" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+                <a href="annonces.html" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
                     VOIR LES ANNONCES
                 </a>
             </div>
@@ -118,7 +120,7 @@
             <h2 class="text-3xl md:text-4xl font-extrabold text-text">
                 Découvrez Votre Résidence Étudiante Idéale
             </h2>
-            <a href="#" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+            <a href="reclamation.html" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
                 EXPLORER
             </a>
         </div>
@@ -149,10 +151,7 @@
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            // L'icône Font Awesome n'est pas chargée dans le code que vous m'avez envoyé, je l'ajoute ici pour la rendre fonctionnelle.
-            // Note: Vous devez ajouter la ligne Font Awesome dans le head pour que cela fonctionne. 
-            // <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-            
+            // Script de bascule du menu mobile (conservé tel quel)
             menuToggle.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
             });

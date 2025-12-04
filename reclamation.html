@@ -13,7 +13,6 @@
             theme: {
                 extend: {
                     colors: {
-                        // Couleurs personnalisées
                         'esprit-red': '#E63946',
                         'secondary': '#A8201A',
                         'accent': '#F9C74F',
@@ -34,20 +33,33 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
             <div class="flex items-center space-x-2">
-                <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+                <a href="index.html">
+                    <img class="h-10 w-auto" src="images/logo-esprit.png" alt="ESPRIT Foyer Logo">
+                </a>
             </div>
 
             <nav class="hidden md:flex">
                 <div class="flex space-x-2 bg-esprit-red rounded-full p-1 shadow-lg">
                     <a href="index.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Accueil</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
+                    <a href="reservations.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Réservations</a>
                     <a href="reclamation.html" class="px-5 py-2 text-white font-medium rounded-full bg-secondary transition duration-150">Maintenance</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
-                    <a href="#" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
+                    <a href="annonces.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Annonces</a>
+                    <a href="contact.html" class="px-5 py-2 text-white font-medium rounded-full hover:bg-secondary transition duration-150">Nous contacter</a>
                 </div>
             </nav>
 
+            <button id="menu-toggle" class="md:hidden text-text focus:outline-none">
+                <i class="fas fa-bars h-6 w-6"></i>
+            </button>
+            
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 right-0">
+                <a href="index.html" class="block px-4 py-2 text-text hover:bg-gray-100">Accueil</a>
+                <a href="reservations.html" class="block px-4 py-2 text-text hover:bg-gray-100">Réservations</a>
+                <a href="reclamation.html" class="block px-4 py-2 text-text hover:bg-gray-100 font-bold bg-gray-100">Maintenance</a>
+                <a href="annonces.html" class="block px-4 py-2 text-text hover:bg-gray-100">Annonces</a>
+                <a href="contact.html" class="block px-4 py-2 text-text hover:bg-gray-100">Nous contacter</a>
             </div>
+        </div>
     </header>
 
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
@@ -64,7 +76,7 @@
                     <p class="text-gray-600 text-base mb-6">
                         Passez en revue le statut de vos demandes de service soumises, de vos réclamations de maintenance et de vos problèmes passés.
                     </p>
-                    <a href="#" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
+                    <a href="demande-intervention.html" class="inline-block bg-esprit-red text-white font-bold py-3 px-6 rounded-lg hover:bg-secondary transition duration-150 shadow-md uppercase text-sm">
                         FAIRE UNE DEMANDE
                     </a>
                 </div>
@@ -83,7 +95,7 @@
                     <p class="text-gray-600 text-base mb-6">
                         Consultez ici votre fil d'actualité personnel. C'est l'espace dédié à toutes les communications de la résidence.
                     </p>
-                    <a href="#" class="inline-block bg-secondary text-white font-bold py-3 px-6 rounded-lg hover:bg-esprit-red transition duration-150 shadow-md uppercase text-sm">
+                    <a href="historique-demandes.html" class="inline-block bg-secondary text-white font-bold py-3 px-6 rounded-lg hover:bg-esprit-red transition duration-150 shadow-md uppercase text-sm">
                         VOIR LES NOUVELLES
                     </a>
                 </div>
@@ -116,6 +128,18 @@
             <p class="text-right">© 2025 Esprit - Foyer. Tous droits réservés.</p>
         </div>
     </footer>
-    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
