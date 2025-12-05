@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Foyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="bg-white">
+
+    <!-- NAV BAR -->
+    <nav class="w-full bg-white pt-8 pb-4">
+        <div class="max-w-7xl mx-auto flex items-center px-4 relative">
+            <a href="index.html" class="flex items-center space-x-2 z-10">
+                <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-12">
+            </a>
+
+            <div class="absolute inset-x-0 mx-auto w-fit hidden md:block">
+                <div class="bg-red-600 rounded-full shadow-lg p-2 flex space-x-6 text-white text-sm font-semibold">
+                    <a href="index.html" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Accueil</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Reservation</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Maintenance</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Annonces</a>
+                    <a href="#" class="px-4 py-2 hover:bg-red-700 rounded-full transition duration-150">Nous contacter</a>
+                </div>
+            </div>
+
+            <div class="ml-auto w-[80px] h-10"></div>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- TITLE -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-red-600 mb-4">Notifications</h1>
+        <p class="text-gray-600 mb-10 text-base sm:text-lg">Consulter les informations importantes</p>
+
+        <!-- GRID NOTIFICATIONS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            
+            <!-- CARD 1 - Facture -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-bell text-gray-700"></i>
+                            Facture disponible
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre nouvelle facture du mois de novembre est maintenant disponible…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('facture')">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 2 - Paiement -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-credit-card text-gray-700"></i>
+                            Paiement
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre paiement de ce mois a été reçu avec succès…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('paiement')">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 3 - Renouvellement -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-gray-700"></i>
+                            Renouvellement
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Votre contrat de foyer expire dans 10 jours. Pensez à le renouveler…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('renouvellement')">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 4 - Maintenance -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-gray-700"></i>
+                            Maintenance
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Une intervention de maintenance est prévue demain entre 09h et 12h…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('maintenance')">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 5 - Électricité -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-regular fa-lightbulb text-gray-700"></i>
+                            Électricité
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Une coupure d'électricité est prévue aujourd'hui de 14h à 16h…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('electricite')">
+                    Afficher
+                </button>
+            </div>
+
+            <!-- CARD 6 - Club sportif -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 h-full flex flex-col">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-dumbbell text-gray-700"></i>
+                            Club sportif
+                        </h3>
+                        <i class="fa-solid fa-xmark text-gray-500 cursor-pointer hover:text-gray-700" onclick="removeNotification(this)"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Ouverture des inscriptions pour le club sportif…
+                    </p>
+                </div>
+                <button class="mt-auto bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition duration-150 text-sm w-full" onclick="openModal('sport')">
+                    Afficher
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL POPUP -->
+    <div id="notificationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="bg-red-600 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold">Détail De La Notification</h2>
+                        <h3 class="text-xl mt-1" id="modalTitle">FACTURE</h3>
+                    </div>
+                    <button onclick="closeModal()" class="text-white hover:bg-red-700 rounded-full p-2 transition duration-150">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6">
+                <!-- Notification Title and Description -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-4 h-4 border-2 border-gray-700 rounded-sm"></div>
+                        <h4 class="text-xl font-bold text-gray-900" id="notificationType">Facture disponible</h4>
+                    </div>
+                    <p class="text-gray-600 ml-7" id="notificationDescription">
+                        Votre nouvelle facture du mois de novembre est maintenant disponible.
+                    </p>
+                </div>
+
+                <!-- Divider -->
+                <hr class="border-gray-300 mb-8">
+
+                <!-- Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Date</p>
+                        <p class="text-gray-900 font-semibold" id="detailDate">13 Nov 2025 - 10:32</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Numéro</p>
+                        <p class="text-gray-900 font-semibold" id="detailNumber">#F-811232</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Montant</p>
+                        <p class="text-gray-900 font-semibold" id="detailAmount">120 DT</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Status</p>
+                        <p class="text-gray-900 font-semibold" id="detailStatus">Non payée</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                    <button class="flex-1 border-2 border-gray-800 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition duration-150 flex items-center justify-center gap-2">
+                        <i class="far fa-file-pdf"></i>
+                        Télécharger PDF
+                    </button>
+                    <button class="flex-1 bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition duration-150 flex items-center justify-center gap-2">
+                        <i class="fas fa-credit-card"></i>
+                        Payer maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-red-600 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-white gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                <div class="bg-white p-3 rounded-xl">
+                    <img src="images/logo-esprit.png" alt="ESPRIT Foyer Logo" class="h-10">
+                </div>
+                <div>
+                    <p class="font-bold">Contact Us</p>
+                    <p>Tél : [Numéro du Foyer]</p>
+                    <p>E-mail : info@espritfoyer.com</p>
+                </div>
+            </div>
+            <p class="text-center">© 2025 Esprit - Foyer. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal Functions
+        function openModal(type) {
+            const modal = document.getElementById('notificationModal');
+            
+            // Set content based on notification type
+            switch(type) {
+                case 'facture':
+                    document.getElementById('modalTitle').textContent = 'FACTURE';
+                    document.getElementById('notificationType').textContent = 'Facture disponible';
+                    document.getElementById('notificationDescription').textContent = 'Votre nouvelle facture du mois de novembre est maintenant disponible.';
+                    document.getElementById('detailDate').textContent = '13 Nov 2025 - 10:32';
+                    document.getElementById('detailNumber').textContent = '#F-811232';
+                    document.getElementById('detailAmount').textContent = '120 DT';
+                    document.getElementById('detailStatus').textContent = 'Non payée';
+                    break;
+                    
+                case 'paiement':
+                    document.getElementById('modalTitle').textContent = 'PAIEMENT';
+                    document.getElementById('notificationType').textContent = 'Paiement confirmé';
+                    document.getElementById('notificationDescription').textContent = 'Votre paiement de ce mois a été reçu avec succès.';
+                    document.getElementById('detailDate').textContent = '12 Nov 2025 - 14:45';
+                    document.getElementById('detailNumber').textContent = '#P-456789';
+                    document.getElementById('detailAmount').textContent = '120 DT';
+                    document.getElementById('detailStatus').textContent = 'Payé';
+                    break;
+                    
+                case 'renouvellement':
+                    document.getElementById('modalTitle').textContent = 'RENOUVELLEMENT';
+                    document.getElementById('notificationType').textContent = 'Contrat à renouveler';
+                    document.getElementById('notificationDescription').textContent = 'Votre contrat de foyer expire dans 10 jours. Pensez à le renouveler.';
+                    document.getElementById('detailDate').textContent = '25 Nov 2025 - 09:15';
+                    document.getElementById('detailNumber').textContent = '#R-987654';
+                    document.getElementById('detailAmount').textContent = 'À définir';
+                    document.getElementById('detailStatus').textContent = 'En attente';
+                    break;
+                    
+                case 'maintenance':
+                    document.getElementById('modalTitle').textContent = 'MAINTENANCE';
+                    document.getElementById('notificationType').textContent = 'Maintenance programmée';
+                    document.getElementById('notificationDescription').textContent = 'Une intervention de maintenance est prévue demain entre 09h et 12h.';
+                    document.getElementById('detailDate').textContent = '15 Nov 2025 - 09:00 à 12:00';
+                    document.getElementById('detailNumber').textContent = '#M-321654';
+                    document.getElementById('detailAmount').textContent = 'Gratuit';
+                    document.getElementById('detailStatus').textContent = 'Planifié';
+                    break;
+                    
+                case 'electricite':
+                    document.getElementById('modalTitle').textContent = 'ÉLECTRICITÉ';
+                    document.getElementById('notificationType').textContent = 'Coupure programmée';
+                    document.getElementById('notificationDescription').textContent = 'Une coupure d\'électricité est prévue aujourd\'hui de 14h à 16h.';
+                    document.getElementById('detailDate').textContent = '14 Nov 2025 - 14:00 à 16:00';
+                    document.getElementById('detailNumber').textContent = '#E-654987';
+                    document.getElementById('detailAmount').textContent = 'Non applicable';
+                    document.getElementById('detailStatus').textContent = 'À venir';
+                    break;
+                    
+                case 'sport':
+                    document.getElementById('modalTitle').textContent = 'CLUB SPORTIF';
+                    document.getElementById('notificationType').textContent = 'Inscriptions ouvertes';
+                    document.getElementById('notificationDescription').textContent = 'Ouverture des inscriptions pour le club sportif.';
+                    document.getElementById('detailDate').textContent = '20 Nov 2025 - 08:00';
+                    document.getElementById('detailNumber').textContent = '#S-147258';
+                    document.getElementById('detailAmount').textContent = '30 DT/mois';
+                    document.getElementById('detailStatus').textContent = 'Inscriptions ouvertes';
+                    break;
+            }
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('notificationModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Remove notification card
+        function removeNotification(element) {
+            const card = element.closest('.bg-white.rounded-xl');
+            if (card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    card.remove();
+                }, 300);
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('notificationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
